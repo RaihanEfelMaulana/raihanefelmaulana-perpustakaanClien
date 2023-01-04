@@ -24,7 +24,6 @@ public class FormPengembalian extends javax.swing.JFrame {
         initComponents();
         controller = new PengembalianController(this);
         controller.bersihForm();
-        controller.viewTabel();
     }
 
     public JTable getTabelPengembalian() {
@@ -114,7 +113,7 @@ public class FormPengembalian extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Pengembalian Id", "Peminjaman Id", "Tgl Dikembalikan", "Terlambat", "Denda"
             }
         ));
         jScrollPane1.setViewportView(tabelPengembalian);
@@ -238,8 +237,7 @@ public class FormPengembalian extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormPengembalian().setVisible(true);
-            }
+                new FormPengembalian().setVisible(true);            }
         });
     }
 

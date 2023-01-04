@@ -4,8 +4,8 @@
  */
 package com.mycompany.raihanefelmaulana.perpustakaanclien.Controller;
 
+
 import com.mycompany.raihanefelmaulana.perpustakaanclien.FormPengembalian;
-import com.mycompany.raihanefelmaulana.perpustakaanclien.Model.Peminjaman;
 import com.mycompany.raihanefelmaulana.perpustakaanclien.Model.Pengembalian;
 import com.mycompany.raihanefelmaulana.perpustakaanclien.Service.PengembalianService;
 import java.util.List;
@@ -28,6 +28,7 @@ public class PengembalianController {
     public void bersihForm(){
         formPengembalian.getTxtPengembalianId().setText("");
         formPengembalian.getTxtPeminjamanId().setText("");
+ 
     }
     
     public void getPengembalianId(){
@@ -55,7 +56,7 @@ public class PengembalianController {
      public void updatePengembalian() {
         Pengembalian pengembalian = new Pengembalian();
         pengembalian.setPengembalianId(Long.parseLong(formPengembalian.getTxtPengembalianId().getText()));
-        pengembalian = pengembalianService.savePengembalian(pengembalian);
+        pengembalian = pengembalianService.updatePengembalian(pengembalian);
         if (pengembalian != null) {
             formPengembalian.getTxtPengembalianId().setText(pengembalian.getPengembalianId().toString());
             JOptionPane.showMessageDialog(formPengembalian, "Update Data Berhasil");
@@ -65,7 +66,7 @@ public class PengembalianController {
     }
     
     public void deletePengembalian(){
-        Long id = Long.parseLong(formPengembalian.getTxtPeminjamanId().getText());
+        Long id = Long.parseLong(formPengembalian.getTxtPengembalianId().getText());
         pengembalianService.deletePengembalian(id);
         JOptionPane.showMessageDialog(formPengembalian, "Delete Data Berhasil");
     }
@@ -80,7 +81,7 @@ public class PengembalianController {
                 pengembalian.getPeminjamanId(),
                 pengembalian.getTglDiKembalikan(),
                 pengembalian.getTerlambat(),
-                pengembalian.getDenda(),
+                pengembalian.getDenda()
             };
             tabelModel.addRow(row);
         }
