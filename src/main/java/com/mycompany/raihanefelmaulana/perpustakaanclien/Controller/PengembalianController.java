@@ -41,6 +41,7 @@ public class PengembalianController {
         }
     }
     
+    
     public void savePengembalian() {
         Pengembalian pengembalian = new Pengembalian();
         pengembalian.setPeminjamanId(Long.parseLong(formPengembalian.getTxtPeminjamanId().getText()));
@@ -56,6 +57,7 @@ public class PengembalianController {
      public void updatePengembalian() {
         Pengembalian pengembalian = new Pengembalian();
         pengembalian.setPengembalianId(Long.parseLong(formPengembalian.getTxtPengembalianId().getText()));
+        pengembalian.setPeminjamanId(Long.parseLong(formPengembalian.getTxtPeminjamanId().getText()));
         pengembalian = pengembalianService.updatePengembalian(pengembalian);
         if (pengembalian != null) {
             formPengembalian.getTxtPengembalianId().setText(pengembalian.getPengembalianId().toString());
